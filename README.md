@@ -237,6 +237,16 @@ despues inicializaremos los productores y consumidores con un ciclo for, finalme
     	return 0;
     }
 
+
+# Ejecucion
+Para la ejecucion primero debemos crear el ejecutable para ello usaremos el siguiente comando:
+
+    g++ productoresconsumidores.cpp -o productoresexe -pthread -std=c++11
+	
+Para ejecutar el archivo que creamos utilizamos el siguiente comando:
+
+    ./productoresexe
+    
 # Creditos
 
 https://www.geeksforgeeks.org/producer-consumer-problem-and-its-implementation-with-c/

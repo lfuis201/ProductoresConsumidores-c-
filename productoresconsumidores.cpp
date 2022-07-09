@@ -49,10 +49,45 @@ class Productor {
 		}
 };
 
+//clase consumidor
+class Consumidor {
+	private:
+		thread t;
+		int k;
+		void consume() {
+			//los consumidores siempre estaran consumiendo
+
+			while (true)
+			{
+				unique_lock<mutex> locker(mu);
+				cond.wait(locker, []()
+				  		{ return buffer.size() > 0; });
+				//val es ultimo valor del buffer
+				int val = buffer.back();
+				//el consumidor consume el ultimo elemento
+				buffer.pop_back();
+				cout << "consumidor "<<k<<" consume:" << val << endl;
+				locker.unlock();
+				//notificamos a los otros hilos que pueden continuar
+				cond.notify_one();
+			}
+		}
+	public:
+		Consumidor(int id) {
+			k = id;
+			t = thread(&Consumidor::consume, this);
+			//t.join();
+		}
+		void join_thread(){
+			t.join();
+		}
+};
+
 int main(void)
 {
 	//creamos una lista de consumidores y productores
 	Productor* productores[NUM_PRODUCTORES];
+	Consumidor* consumidores[NUM_PRODUCTORES];
 	
 	int identificadores[NUM_PRODUCTORES];
 
@@ -60,11 +95,13 @@ int main(void)
 	//inicializamos los productores y consumidores
 	for (i=0; i<NUM_PRODUCTORES; i++)	{		
 		productores[i] = new Productor(i);
+		consumidores[i] = new Consumidor(i); 
 	}
 
 	//comenzamos a producir y consumir
 	for (i=0; i<NUM_PRODUCTORES; i++)	{
 		productores[i]->join_thread();
+		consumidores[i]->join_thread();
 	}
 	return 0;
 }

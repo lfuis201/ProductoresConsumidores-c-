@@ -11,7 +11,7 @@ Asignatura: Sistemas Operativos
 
 [TOC]
 
-##Implementacion en c++
+## Implementacion en c++
     
     #include "iostream"
     #include<thread>

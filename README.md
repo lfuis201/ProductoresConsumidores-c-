@@ -132,7 +132,8 @@ Aparte de hilos utilizaremos mutex, condition_variable y deque.
 La clase condition_variable es una primitiva de sincronización que se puede usar para bloquear un subproceso, o varios subprocesos al mismo tiempo, hasta que otro subproceso modifique una variable compartida (la condición) y notifique a condition_variable.
 
 La clase deque es una cola de dos extremos. Las colas de dos extremos son contenedores de secuencias con tamaños dinámicos que se pueden expandir o contraer en ambos extremos (ya sea en la parte delantera o trasera).
-##Clase Productor
+
+## Clase Productor
 Crearemos la clase productor, esta tendra como atributos un thread con nombre t, un integer de nombre k que sera el id del Prodcutor, como metodo solo tendra produce que sera de tipo void y no recibira nungun paramatro.
 El metodo produce sera el encargado de producir elementos para el buffer y para que los consumidores consuman estos elementos.
 Dentro del metodo produce tendremos integer llamado val este sera el valor limite que tendran los elementos que se produciran, tambien habra un bucle while donde produciremos los elementos y se almacenaran en el buffer, estos iran desde val asta 0, cuando val se 0 terminara el bucle while.

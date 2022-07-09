@@ -120,12 +120,13 @@ Asignatura: Sistemas Operativos
     	}
     	return 0;
     }
-#Explicacion
-##Librerias usadas
+# Explicacion
+## Librerias usadas
     #include<thread>
     #include<mutex>
     #include<deque>
     #include <condition_variable>
+    
 Aparte de hilos utilizaremos mutex, condition_variable y deque.
 
 La clase condition_variable es una primitiva de sincronización que se puede usar para bloquear un subproceso, o varios subprocesos al mismo tiempo, hasta que otro subproceso modifique una variable compartida (la condición) y notifique a condition_variable.
@@ -169,7 +170,7 @@ En el constructor de la clase productor recibira como parametro un integer y ser
     			t.join();
     		}
     };
-##Clase Consumidor
+## Clase Consumidor
 La clase consumidor es paracida a la anterior clase, tendra como atributos un thread y un integer llamado k que sera su id.
 Como unico metodo crearemos el metodo consume que sera de tipo void y no recibira parametros.
 Dentro de este metodo solo tendremos un ciclo while infinito ya que los consumidores siempre estaran consumiendo del buffer, dentro de este ciclo
@@ -209,8 +210,8 @@ El constructor de la clase Consumidor solo recibira como parametro un integer qu
     		}
     };
     
-##Clase Main
-E n la clase main primero crearemos la lista de los consumidores y productores,
+## Clase Main
+En la clase main primero crearemos la lista de los consumidores y productores,
 despues inicializaremos los productores y consumidores con un ciclo for, finalmente ejecutaremos los trheads igual con un ciclo for
 
     int main(void)
@@ -236,7 +237,7 @@ despues inicializaremos los productores y consumidores con un ciclo for, finalme
     	return 0;
     }
 
-#Creditos
+# Creditos
 
 https://www.geeksforgeeks.org/producer-consumer-problem-and-its-implementation-with-c/
 

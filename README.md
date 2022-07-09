@@ -8,6 +8,7 @@ Asignatura: Sistemas Operativos
 **Tabla de contenidos**
 
 [TOCM]
+
 [TOC]
 
 ## Implementacion en c++
